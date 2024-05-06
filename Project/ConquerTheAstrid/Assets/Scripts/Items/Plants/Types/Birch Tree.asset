@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df368e7058eb7042afd3abd4ca4b791, type: 3}
+  m_Name: Birch Tree
+  m_EditorClassIdentifier: 
+  ItemName: Birch Tree
+  ItemDescription: Description of the birch tree
+  ItemSprite: {fileID: 21300000, guid: 7caf2a6c78bb6e849a14f00b68fe7952, type: 3}
+  ItemType: 1
+  ItemPrefab: {fileID: 8512151455187698748, guid: 2f5ad9223076d8342a0234ca47a60aab, type: 3}
+  Health: 1500
+  GrowthTime: 20
+  GrowthCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.3
+      inSlope: -0.49299708
+      outSlope: -0.49299708
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.53562224
+    - serializedVersion: 3
+      time: 0.05
+      value: 0.25
+      inSlope: 1.6247786
+      outSlope: 1.6247786
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5809538
+      outWeight: 0.031970333
+    - serializedVersion: 3
+      time: 0.9
+      value: 1.01
+      inSlope: 0.7377248
+      outSlope: 0.7377248
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.10084139
+      outWeight: 0.21011825
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1.0001683
+      outSlope: 1.0001683
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.19825692
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
