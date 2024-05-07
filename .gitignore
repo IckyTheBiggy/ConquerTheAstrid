@@ -1,3 +1,4 @@
+!*.meta
 /Builds
 /Project/ConquerTheAstrid/.idea
 /Project/ConquerTheAstrid/Library
@@ -10,5 +11,4 @@
 /Project/ConquerTheAstrid/ConquerTheAstrid.sln
 /Project/ConquerTheAstrid/.vsconfig
 /Project/ConquerTheAstrid/.vs
-
 /Project/ConquerTheAstrid/Assets/EditorThemes
