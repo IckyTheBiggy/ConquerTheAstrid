@@ -5287,7 +5287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentPlanet: {fileID: 517363987}
-  _transitionTimeMultiplier: 0.3
+  _transitionTime: 1
+  _transitionEasing: 16
 --- !u!224 &1631772404 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6512981265381824729, guid: e7bbb760edce3cb40bd57b48e338d24a, type: 3}
@@ -7696,7 +7697,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6a751f0548d244d489a3fc9f682e9f81, type: 2}
     - target: {fileID: 2374820703613199835, guid: 782ea164ecf7b0142adad0d9e9b04713, type: 3}
       propertyPath: _selectableMask.m_Bits
-      value: 1
+      value: 1984
       objectReference: {fileID: 0}
     - target: {fileID: 5989837017530393319, guid: 782ea164ecf7b0142adad0d9e9b04713, type: 3}
       propertyPath: _lerpSpeed

@@ -11,7 +11,8 @@ namespace Planet
         public PlanetScript CurrentPlanet;
         private PlanetScript _previousPlanet;
         private List<PlanetScript> _planetScripts;
-        [SerializeField] private float _transitionTimeMultiplier;
+        [SerializeField] private float _transitionTime;
+        [SerializeField] private Easings.Types _transitionEasing;
 
         private void Awake()
         {
@@ -56,14 +57,10 @@ namespace Planet
             var targetPos =
                 (camScript.RotationCenter - newCamPos).normalized * camScript._currentZoom + camScript.RotationCenter;
             var posDelta = Vector3.Distance(startPos, targetPos);
-            var transitionTime = _transitionTimeMultiplier * (posDelta / 1000f);
-            transitionTime = transitionTime < 0.5f ? 0.5f : transitionTime;
             
             while (lerpPos < 1)
             {
-                lerpPos += Time.deltaTime / transitionTime;
-                lerpPos = Mathf.Clamp01(lerpPos);
-                var t = Easings.Ease(lerpPos, Easings.Types.CubicInOut);
+                var t = NnUtils.Scripts.Misc.UpdateLerpPos(ref lerpPos, _transitionTime, false, _transitionEasing);
                 cam.transform.position = Vector3.Lerp(startPos, targetPos, t);
                 yield return null;
             }
