@@ -55,7 +55,7 @@ namespace Planet
             var startPos = cam.transform.position;
             var newCamPos = camScript.RotationCenter + (startPos - _previousPlanet.transform.position);
             var targetPos =
-                (camScript.RotationCenter - newCamPos).normalized * camScript._currentZoom + camScript.RotationCenter;
+                (camScript.RotationCenter - newCamPos).normalized * camScript.CurrentZoom + camScript.RotationCenter;
             var posDelta = Vector3.Distance(startPos, targetPos);
             
             while (lerpPos < 1)
