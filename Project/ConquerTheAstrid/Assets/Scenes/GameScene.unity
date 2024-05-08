@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -25, y: 100}
+  m_AnchoredPosition: {x: -25.000122, y: 100}
   m_SizeDelta: {x: -250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206111142
@@ -720,6 +720,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505362209}
+  - component: {fileID: 505362210}
   m_Layer: 0
   m_Name: CameraOrigin
   m_TagString: Untagged
@@ -743,6 +744,22 @@ Transform:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 10, y: -105, z: 0}
+--- !u!114 &505362210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505362208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31e1549a5518ee9ba6de47d921dbac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 0.5
+  _rotationEasing: 16
+  _zoomSpeed: 0.5
+  _zoomEasing: 16
 --- !u!1 &517363986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5546869378247859730, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
@@ -4496,12 +4513,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1d8a99abbd594948ae98bf28246a2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentZoom: 0
+  CurrentZoom: 0
   _sensitivity: 0.1
   _zoomSensitivity: 100
   ZoomSensitivityMultiplier: 1

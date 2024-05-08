@@ -50,9 +50,7 @@ namespace Camera
 
         public void OnPlanetChanged()
         {
-            #if UNITY_STANDALONE
             _prevMousePos = Input.mousePosition;
-            #endif
         }
         
         private void Move()

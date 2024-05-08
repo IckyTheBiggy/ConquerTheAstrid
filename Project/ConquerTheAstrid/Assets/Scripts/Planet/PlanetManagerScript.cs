@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.NnUtils.Scripts;
 using Core;
+using NnUtils.Scripts;
 using UnityEngine;
 
 namespace Planet
@@ -28,11 +29,6 @@ namespace Planet
         public void SwitchPlanet(PlanetScript ps)
         {
             if (CurrentPlanet == ps) return;
-            if (_planetSwitchRoutine != null)
-            {
-                StopCoroutine(_planetSwitchRoutine);
-                _planetSwitchRoutine = null;
-            }
             
             CurrentPlanet.SwitchFrom();
             _previousPlanet = CurrentPlanet;
@@ -40,7 +36,7 @@ namespace Planet
             ps.SwitchTo();
             
             GameManager.Instance.AudioManager.PlaySFX(AudioManager.Sounds.PlanetSelect, 0.2f);
-            _planetSwitchRoutine = StartCoroutine(PlanetSwitchRoutine(ps));
+            Misc.RestartCoroutine(this, ref _planetSwitchRoutine, PlanetSwitchRoutine(ps));
         }
         
         private Coroutine _planetSwitchRoutine;
