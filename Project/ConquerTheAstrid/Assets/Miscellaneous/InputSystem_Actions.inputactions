@@ -10,7 +10,7 @@
                     "type": "Value",
                     "id": "fae4b628-daac-4097-b3aa-76c2cee825e7",
                     "expectedControlType": "Axis",
-                    "processors": "",
+                    "processors": "Clamp(min=-1,max=1)",
                     "interactions": "",
                     "initialStateCheck": true
                 }

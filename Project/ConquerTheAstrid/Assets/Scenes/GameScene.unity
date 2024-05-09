@@ -758,8 +758,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 0.5
   _rotationEasing: 16
-  _zoomSpeed: 0.5
-  _zoomEasing: 16
 --- !u!1 &517363986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5546869378247859730, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
@@ -4513,18 +4511,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1d8a99abbd594948ae98bf28246a2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentZoom: 0
-  _sensitivity: 0.1
-  _zoomSensitivity: 100
-  ZoomSensitivityMultiplier: 1
-  ZoomMin: -200
-  ZoomMax: -100
-  RotationCenter: {x: 0, y: 0, z: 0}
+  _zoomMinMax: {x: -200, y: -75}
+  _zoomSpeed: 0.5
+  _zoomLerpTime: 1
+  _zoomEasing: 16
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
