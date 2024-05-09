@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using Assets.NnUtils.Scripts;
+using Core;
 using NnUtils.Scripts;
 using UnityEngine;
 
@@ -11,6 +13,11 @@ namespace Camera
         
         [SerializeField] private float _rotationSpeed = 0.5f;
         [SerializeField] private Easings.Types _rotationEasing = Easings.Types.ExpoOut;
+
+        private void Start()
+        {
+            GameManager.Instance.PlanetManagerScript.OnCurrentPlanetChanged += MoveToPlanet;
+        }
 
         private void Update()
         {
@@ -24,7 +31,6 @@ namespace Camera
         }
 
         private Coroutine _rotateRoutine;
-
         private IEnumerator RotateRoutine()
         {
             var startMousePos = Misc.GetPointerPos();
@@ -48,7 +54,6 @@ namespace Camera
         }
 
         private Coroutine _lerpRotationRoutine;
-
         private IEnumerator LerpRotationRoutine(Vector2 targetRotEuler)
         {
             var startRotEuler = _currentRot;
@@ -63,6 +68,26 @@ namespace Camera
             }
 
             _lerpRotationRoutine = null;
+        }
+
+        private void MoveToPlanet() => Misc.RestartCoroutine(this, ref _moveToPlanetRoutine, MoveToPlanetRoutine());
+        private Coroutine _moveToPlanetRoutine;
+        private IEnumerator MoveToPlanetRoutine()
+        {
+            var startPos = transform.localPosition;
+            var planetManager = GameManager.Instance.PlanetManagerScript;
+            var targetPos = planetManager.CurrentPlanet.transform.localPosition;
+            var time = planetManager.TransitionTime;
+            var easing = planetManager.TransitionEasing;
+            float lerpPos = 0;
+            
+            while (lerpPos < 1)
+            {
+                var t = Misc.UpdateLerpPos(ref lerpPos, time, false, easing);
+                transform.localPosition = Vector3.Lerp(startPos, targetPos, t);
+                yield return null;
+            }
+            _moveToPlanetRoutine = null;
         }
     }
 }

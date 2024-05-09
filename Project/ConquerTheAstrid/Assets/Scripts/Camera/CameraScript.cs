@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Assets.NnUtils.Scripts;
+using Core;
 using NnUtils.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,18 +12,23 @@ namespace Camera
     {
         private float _targetZoom;
 
-        [SerializeField] private Vector2 _zoomMinMax;
+        private Vector2 _zoomMinMax;
         [SerializeField] private float _zoomSpeed = 0.5f;
         [SerializeField] private float _zoomLerpTime = 1;
         [SerializeField] private Easings.Types _zoomEasing = Easings.Types.ExpoOut;
 
-        private void Start() => _targetZoom = transform.localPosition.z; //Update with the current planet instead
+        private void Awake()
+        {
+            var planetManager = GameManager.Instance.PlanetManagerScript;
+            _targetZoom = transform.localPosition.z; //Update with the current planet instead
+            planetManager.OnCurrentPlanetChanged += () => SetMinMax(planetManager.CurrentPlanet.ZoomMin, planetManager.CurrentPlanet.ZoomMax);
+        }
 
         private void Update() => Zoom(InputSystem.actions["Zoom"].ReadValue<float>());
 
-        private void Zoom(float amount)
+        private void Zoom(float amount, bool forceUpdate = false)
         {
-            if (amount == 0) return;
+            if (!forceUpdate && amount == 0) return;
             _targetZoom = Mathf.Clamp(_targetZoom + (amount * _zoomSpeed), _zoomMinMax.x, _zoomMinMax.y);
             Misc.RestartCoroutine(this, ref _lerpZoomRoutine, LerpZoomRoutine());
         }
@@ -44,9 +50,10 @@ namespace Camera
             _lerpZoomRoutine = null;
         }
 
-        private void SetMinMax()
+        private void SetMinMax(float min, float max)
         {
-            
+            _zoomMinMax = new(min, max);
+            Zoom(0, true);
         }
     }
 }

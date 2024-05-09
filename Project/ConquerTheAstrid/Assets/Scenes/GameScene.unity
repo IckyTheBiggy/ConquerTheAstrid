@@ -763,17 +763,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5546869378247859730, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
   m_PrefabInstance: {fileID: 1743487603}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &517363987 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8418753684110762641, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
-  m_PrefabInstance: {fileID: 1743487603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517363986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e32374739d0cf8d85563ba5728d905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &517363988 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2928810105964708343, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
@@ -2104,6 +2093,10 @@ PrefabInstance:
     - target: {fileID: 8394753508135311474, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418753684110762641, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
+      propertyPath: ZoomMax
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 8418753684110762641, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
       propertyPath: PlaceablePlants.Array.data[2].ItemSO
@@ -3742,6 +3735,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8418753684110762641, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
+      propertyPath: ZoomMax
+      value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8418753684110762641, guid: 72cc99b77416c1d4aa03f9778f17b718, type: 3}
       propertyPath: PlaceablePlants.Array.data[2].ItemSO
       value: 
       objectReference: {fileID: 11400000, guid: 6142b27d3e151e44d813cd182e1f702d, type: 2}
@@ -4497,7 +4494,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -105}
+  m_LocalPosition: {x: 0, y: 0, z: -110}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4516,8 +4513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d8a99abbd594948ae98bf28246a2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zoomMinMax: {x: -200, y: -75}
-  _zoomSpeed: 0.5
+  _zoomSpeed: 5
   _zoomLerpTime: 1
   _zoomEasing: 16
 --- !u!114 &963194230
@@ -5298,7 +5294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6f4559ed4f23342b0f3c137fa4cc3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentPlanet: {fileID: 517363987}
   _transitionTime: 1
   _transitionEasing: 16
 --- !u!224 &1631772404 stripped
