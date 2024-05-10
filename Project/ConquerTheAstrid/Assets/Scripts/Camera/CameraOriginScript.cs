@@ -74,9 +74,18 @@ namespace Camera
         private Coroutine _moveToPlanetRoutine;
         private IEnumerator MoveToPlanetRoutine()
         {
-            var startPos = transform.localPosition;
+            Misc.StopCoroutine(this, ref _lerpRotationRoutine); //This, for some fucking reason, causes issues, cba
             var planetManager = GameManager.Instance.PlanetManagerScript;
-            var targetPos = planetManager.CurrentPlanet.transform.localPosition;
+            var startRot = transform.localRotation.eulerAngles;
+            transform.SetParent(planetManager.CurrentPlanet.transform);
+            
+            //Needed because I am locally storing the rotation which changes when switching planets
+            var deltaRot = transform.localRotation.eulerAngles - startRot;
+            _currentRot += (Vector2)deltaRot;
+            _targetRot += (Vector2)deltaRot;
+            
+            var startPos = transform.localPosition;
+            var targetPos = Vector3.zero;
             var time = planetManager.TransitionTime;
             var easing = planetManager.TransitionEasing;
             float lerpPos = 0;

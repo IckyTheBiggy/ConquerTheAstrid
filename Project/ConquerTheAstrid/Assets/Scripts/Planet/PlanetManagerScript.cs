@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.NnUtils.Scripts;
 using Core;
 using NnUtils.Scripts;
@@ -31,16 +32,14 @@ namespace Planet
 
         private void Awake()
         {
-            _planetScripts = new();
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                if (!transform.GetChild(i).TryGetComponent<PlanetScript>(out var ps)) continue;
-                _planetScripts.Add(ps);
-            }
-            CurrentPlanet = _planetScripts[0];
+            _planetScripts = GetComponentsInChildren<PlanetScript>().ToList();
         }
 
-        private void Start() => CurrentPlanet = _planetScripts[0]; //Done in start so other scripts can listen to event in Awake
+        private void Start()
+        {
+            CurrentPlanet = _planetScripts[0];
+            SwitchPlanet(CurrentPlanet);
+        }
 
         public void SwitchPlanet(PlanetScript ps)
         {
