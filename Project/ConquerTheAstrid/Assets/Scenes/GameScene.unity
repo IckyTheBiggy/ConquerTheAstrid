@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180b514affdf099c3ad5407093cb469f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 0.5
+  _rotationSpeed: 0.25
   _rotationEasing: 16
 --- !u!1 &517363986 stripped
 GameObject:
@@ -7214,7 +7214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9040340095006205311, guid: 3571cdad2dce1714d8659fcff65d85a7, type: 3}
       propertyPath: m_Padding.z
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

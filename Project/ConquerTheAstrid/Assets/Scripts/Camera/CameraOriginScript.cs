@@ -11,7 +11,7 @@ namespace Camera
     {
         private Vector2 _currentRot, _targetRot;
         
-        [SerializeField] private float _rotationSpeed = 0.5f;
+        [SerializeField] private float _rotationSpeed = 0.25f;
         [SerializeField] private Easings.Types _rotationEasing = Easings.Types.ExpoOut;
 
         private void Start()
